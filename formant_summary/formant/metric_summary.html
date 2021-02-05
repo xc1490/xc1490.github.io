@@ -13788,6 +13788,7 @@ $( document ).ready(function(){
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;formant_metric_summary_spec.csv&#39;</span><span class="p">)</span>
 
 
 <span class="n">arr_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -13812,6 +13813,7 @@ $( document ).ready(function(){
 <span class="c1">#ax.set_ylim(0.8,1)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;formant_metric_summary_mfcc.csv&#39;</span><span class="p">)</span>
 
 
 <span class="n">arr_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -13834,7 +13836,7 @@ $( document ).ready(function(){
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;formant_metric_summary_stoi.csv&#39;</span><span class="p">)</span>
 
 
 <span class="n">arr_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -13860,6 +13862,7 @@ $( document ).ready(function(){
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;formant_metric_summary_mcd.csv&#39;</span><span class="p">)</span>
 
 <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
 <span class="n">lgd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span><span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -13977,7 +13980,7 @@ $( document ).ready(function(){
     <span class="n">format_use</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="c1">#{&#39;pass&#39;: &#39;green&#39;, &#39;fail&#39;: &#39;red&#39;, &#39;warn&#39;: &#39;orange&#39;}.get(status, &#39;gray&#39;)</span>
     <span class="k">if</span> <span class="n">col</span><span class="o">!=</span><span class="mi">3</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="s1">&#39;&lt;a href=&quot;</span><span class="si">{sample_id}</span><span class="s1">/NER_result_final_</span><span class="si">{sample_id}</span><span class="s1">.html&quot; style=&quot;color: </span><span class="si">{color}</span><span class="s1">&quot;&gt;&lt;span style=&quot;background: linear-gradient(90deg, rgba(61,164,166,1) </span><span class="si">{format_use}</span><span class="s1">%, transparent 0%)&quot;&gt;</span><span class="si">{split1:.3f}</span><span class="s1">|</span><span class="si">{split2:.3f}</span><span class="s1">&lt;/span&gt;&lt;/a&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;a href=&quot;</span><span class="si">{sample_id}</span><span class="s1">/result_final_</span><span class="si">{sample_id}</span><span class="s1">.html&quot; style=&quot;color: </span><span class="si">{color}</span><span class="s1">&quot;&gt;&lt;span style=&quot;background: linear-gradient(90deg, rgba(61,164,166,1) </span><span class="si">{format_use}</span><span class="s1">%, transparent 0%)&quot;&gt;</span><span class="si">{split1:.3f}</span><span class="s1">|</span><span class="si">{split2:.3f}</span><span class="s1">&lt;/span&gt;&lt;/a&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">sample_id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="mi">2</span><span class="p">:]),</span>  <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">split1</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">split1</span><span class="p">),</span><span class="n">split2</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">split2</span><span class="p">),</span><span class="n">format_use</span><span class="o">=</span><span class="n">format_use</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;&lt;span style=&quot;background: linear-gradient(90deg, rgba(61,164,166,1) </span><span class="si">{format_use}</span><span class="s1">%, transparent 0%)&quot;&gt;</span><span class="si">{split1:.3f}</span><span class="s1">|</span><span class="si">{split2:.3f}</span><span class="s1">&lt;/span&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -14052,34 +14055,34 @@ $( document ).ready(function(){
 
 <div class="output_html rendered_html output_subarea ">
 <style  type="text/css" >
-</style><table id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094b" ><caption>overall performance</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >NY717</th>        <th class="col_heading level0 col1" >NY742</th>        <th class="col_heading level0 col2" >NY749</th>        <th class="col_heading level0 col3" >Average</th>    </tr></thead><tbody>
+</style><table id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3cce" ><caption>overall performance</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >NY717</th>        <th class="col_heading level0 col1" >NY742</th>        <th class="col_heading level0 col2" >NY749</th>        <th class="col_heading level0 col3" >Average</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094blevel0_row0" class="row_heading level0 row0" >SPEC PCC</th>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow0_col0" class="data row0 col0" ><a href="717/NER_result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 72.72442953396958%, transparent 0%)">0.902|0.727</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow0_col1" class="data row0 col1" ><a href="742/NER_result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 83.26445842975625%, transparent 0%)">0.916|0.833</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow0_col2" class="data row0 col2" ><a href="749/NER_result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 89.16433287454564%, transparent 0%)">0.935|0.892</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow0_col3" class="data row0 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 81.69999999999999%, transparent 0%)">0.918|0.817</span></td>
+                        <th id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccelevel0_row0" class="row_heading level0 row0" >SPEC PCC</th>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow0_col0" class="data row0 col0" ><a href="717/result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 72.72442953103281%, transparent 0%)">0.902|0.727</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow0_col1" class="data row0 col1" ><a href="742/result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 83.26445843531498%, transparent 0%)">0.916|0.833</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow0_col2" class="data row0 col2" ><a href="749/result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 89.16433287903548%, transparent 0%)">0.935|0.892</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow0_col3" class="data row0 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 81.69999999999999%, transparent 0%)">0.918|0.817</span></td>
             </tr>
             <tr>
-                        <th id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094blevel0_row1" class="row_heading level0 row1" >STOI</th>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow1_col0" class="data row1 col0" ><a href="717/NER_result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 30.997931443262765%, transparent 0%)">0.699|0.310</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow1_col1" class="data row1 col1" ><a href="742/NER_result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 44.728445182742696%, transparent 0%)">0.633|0.447</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow1_col2" class="data row1 col2" ><a href="749/NER_result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 43.89551058312017%, transparent 0%)">0.558|0.439</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow1_col3" class="data row1 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 39.900000000000006%, transparent 0%)">0.630|0.399</span></td>
+                        <th id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccelevel0_row1" class="row_heading level0 row1" >STOI</th>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow1_col0" class="data row1 col0" ><a href="717/result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 30.997931443262765%, transparent 0%)">0.699|0.310</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow1_col1" class="data row1 col1" ><a href="742/result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 44.728445182742696%, transparent 0%)">0.633|0.447</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow1_col2" class="data row1 col2" ><a href="749/result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 43.89551058312017%, transparent 0%)">0.558|0.439</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow1_col3" class="data row1 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 39.900000000000006%, transparent 0%)">0.630|0.399</span></td>
             </tr>
             <tr>
-                        <th id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094blevel0_row2" class="row_heading level0 row2" >MFCC PCC</th>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow2_col0" class="data row2 col0" ><a href="717/NER_result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 96.70773029735294%, transparent 0%)">0.991|0.967</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow2_col1" class="data row2 col1" ><a href="742/NER_result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 96.97288593078643%, transparent 0%)">0.988|0.970</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow2_col2" class="data row2 col2" ><a href="749/NER_result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 99.04700041282521%, transparent 0%)">0.995|0.990</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow2_col3" class="data row2 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 97.6%, transparent 0%)">0.991|0.976</span></td>
+                        <th id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccelevel0_row2" class="row_heading level0 row2" >MFCC PCC</th>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow2_col0" class="data row2 col0" ><a href="717/result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 96.70773027813414%, transparent 0%)">0.991|0.967</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow2_col1" class="data row2 col1" ><a href="742/result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 96.97288591845202%, transparent 0%)">0.988|0.970</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow2_col2" class="data row2 col2" ><a href="749/result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 99.0470004120629%, transparent 0%)">0.995|0.990</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow2_col3" class="data row2 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 97.6%, transparent 0%)">0.991|0.976</span></td>
             </tr>
             <tr>
-                        <th id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094blevel0_row3" class="row_heading level0 row3" >MCD</th>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow3_col0" class="data row3 col0" ><a href="717/NER_result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 426.01167737753116%, transparent 0%)">2.832|4.260</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow3_col1" class="data row3 col1" ><a href="742/NER_result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 215.60087272569638%, transparent 0%)">1.651|2.156</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow3_col2" class="data row3 col2" ><a href="749/NER_result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 169.54313874245963%, transparent 0%)">1.230|1.695</span></a></td>
-                        <td id="T_8decd73a_2e6c_11eb_b6d7_ef8a95a7094brow3_col3" class="data row3 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 270.40000000000003%, transparent 0%)">1.904|2.704</span></td>
+                        <th id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccelevel0_row3" class="row_heading level0 row3" >MCD</th>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow3_col0" class="data row3 col0" ><a href="717/result_final_717.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 426.01167754924313%, transparent 0%)">2.832|4.260</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow3_col1" class="data row3 col1" ><a href="742/result_final_742.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 215.6008727863012%, transparent 0%)">1.651|2.156</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow3_col2" class="data row3 col2" ><a href="749/result_final_749.html" style="color: black"><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 169.54313864475753%, transparent 0%)">1.230|1.695</span></a></td>
+                        <td id="T_ac3b6428_6764_11eb_8e8c_d38bcbcd3ccerow3_col3" class="data row3 col3" ><span style="background: linear-gradient(90deg, rgba(61,164,166,1) 270.40000000000003%, transparent 0%)">1.904|2.704</span></td>
             </tr>
     </tbody></table>
 </div>
@@ -14093,7 +14096,7 @@ $( document ).ready(function(){
 
 
 <div class="output_html rendered_html output_subarea ">
-<input type="button" id="button_277018224" value="Download">
+<input type="button" id="button_885991972" value="Download">
 </div>
 
 </div>
@@ -14106,7 +14109,7 @@ $( document ).ready(function(){
 
 <div class="output_html rendered_html output_subarea ">
 <script>
-    document.getElementById("button_277018224").addEventListener("click", function(event){
+    document.getElementById("button_885991972").addEventListener("click", function(event){
         var filename = "overall performance.csv";
         var data = "data:text/csv;base64,LE5ZNzE3LE5ZNzQyLE5ZNzQ5LEF2ZXJhZ2UKU1BFQyBQQ0MsMHwwLDB8MSwwfDIsMHwzClNUT0ksMXwwLDF8MSwxfDIsMXwzCk1GQ0MgUENDLDJ8MCwyfDEsMnwyLDJ8MwpNQ0QsM3wwLDN8MSwzfDIsM3wzCg==";
         const element = document.createElement('a');
@@ -14126,6 +14129,19 @@ $( document ).ready(function(){
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;formant_metric_summary.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14133,19 +14149,6 @@ $( document ).ready(function(){
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
