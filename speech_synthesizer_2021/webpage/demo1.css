@@ -1,0 +1,76 @@
+.audiowrapper audio {
+  padding: 0px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.audiowrapper {
+background: none;
+      padding: 0px;
+      margin-bottom: .5em;
+      height: 2em;
+      width: 100%;
+  }
+
+  .comparison audio {
+    width: 100%;
+  }
+
+  img#imgcomparison {
+    width: 100%;
+    margin-bottom: 1.5em;
+  }
+  .comparison {
+    /*font-weight: bold;*/
+  }
+  /*ul.codecs {
+    width: 40%;
+    display: inline-block;
+  }
+
+  ul.bitrates {
+    width: 40%;
+    display: inline-block;
+  }*/
+
+  .comparison ul {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .comparison li {
+    display: inline-block;
+    border: 3px solid;
+    border-radius: 6px;
+    padding: 3px;
+    margin: 0px 5px;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .comparison button {
+    margin: 0px 10px 0px 0px;
+  }
+    
+  p.compare_label {
+    width: 12em;
+    font-weight: bold;
+  }
+    
+  .caption p {
+	  line-height: 1.23em;
+	  text-align: center;
+	  padding: 0px;
+	  margin-top: 1em;
+	  margin-bottom: -1em;
+	  padding-bottom: 1em;
+	  clear: none;
+      }
+      .bitrate .selected {
+        background-color: #bae8f0;
+      }
+
+      
