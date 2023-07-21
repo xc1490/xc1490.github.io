@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Neural Speech Decoding</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="jquery-3.5.js"></script>
+    </head>
+    <body>
+<div class="container">
+    <div id="text1">A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis</div>
+    <div id="intro">
+        <p>
+            [<a href="https://github.com/james20141606/neural_speech_decoding">CODE</a>](available upon request, please email to xc1490@nyu.edu)
+        </p>
+    </div>
+</div>
+        <div class="content-container">
+            <img src="fig.png" style="width:90%">
+            <p>
+                We present a novel deep learning-based neural speech decoding framework that includes an 
+                ECoG Decoder that translates electrocorticographic (ECoG) signals from the cortex into 
+                interpretable speech parameters and a novel differentiable Speech Synthesizer that maps 
+                speech parameters to spectrograms. We develop a companion audio-to-audio auto-encoder 
+                consisting of a Speech Encoder and the same Speech Synthesizer to generate reference 
+                speech parameters to facilitate the ECoG Decoder training. This framework generates 
+                natural-sounding speech and is highly reproducible across a cohort of 48 participants. 
+                Among three neural network architectures for the ECoG Decoder, the 3D ResNet model has 
+                the best decoding performance (PCC=0.804) in predicting the original speech spectrogram. 
+                Our experimental results show that our models can decode speech with high correlation even 
+                when limited to only causal operations, which is necessary for adoption by real-time neural 
+                prostheses. We successfully decode speech in participants with either left or right hemisphere
+                 coverage, which could lead to speech prostheses in patients with speech deficits resulting 
+                 from left hemisphere damage.
+            </p>
+            <br/>
+        </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="content-container">
+    <script src="wavesurfer.js"></script>
+<div class="content-title">Speech Decoding Examples</div>
+<p><i> </i></p>   
+    <table border = "1" class="inlineTable" >
+        <col width="200">
+        <col width="300">
+        <col width="300">
+        <col width="300">
+        <col width="300">
+        <tr>
+            <td></td>
+            <td>Hybrid-density</td>
+            <td>Low-density</td>
+            <td>Left hemisphere (low-density)</td>
+            <td>Right hemisphere (low-density)</td>
+        </tr>
+
+        
+
+        <tr>
+            <th>Decoded</th>
+            <td>
+                <div id="prompts_2_header_waveform"></div>
+                <button id="prompts_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_prompts_2.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_prompts_2 = WaveSurfer.create({
+                                container: '#prompts_2_header_waveform',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_prompts_2.load('./audio/PRED/HB.wav');
+                </script>
+           </td>
+            <td>
+                <div id="logmel_2_header_waveform"></div>
+                <button id="logmel_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_logmel_2.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_logmel_2 = WaveSurfer.create({
+                                container: '#logmel_2_header_waveform',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_logmel_2.load('./audio/PRED/LD.wav');
+                </script>
+           </td>
+            <td>
+                <div id="hubert_2_header_waveform"></div>
+                <button id="hubert_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_hubert_2.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_hubert_2 = WaveSurfer.create({
+                                container: '#hubert_2_header_waveform',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_hubert_2.load('./audio/PRED/LEFT.wav');
+                </script>
+           </td>
+            <td>
+                <div id="asr_2_header_waveform"></div>
+                <button id="asr_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_asr_2.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_asr_2 = WaveSurfer.create({
+                                container: '#asr_2_header_waveform',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_asr_2.load('./audio/PRED/RIGHT.wav');
+                </script>
+           </td>
+        </tr>
+
+        <tr>
+            <th>Original/Decoded</th>
+            <td>
+                <div id="prompts_2_header_waveform_merge"></div>
+                <button id="prompts_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_Merge_1.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_Merge_1 = WaveSurfer.create({
+                                container: '#prompts_2_header_waveform_merge',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                            wavesurfer_Merge_1.load('./audio/MERGE/HB.wav');
+                </script>
+           </td>
+            <td>
+                <div id="logmel_2_header_waveform_merge"></div>
+                <button id="logmel_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_logmel_2_merge.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_logmel_2_merge = WaveSurfer.create({
+                                container: '#logmel_2_header_waveform_merge',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_logmel_2_merge.load('./audio/MERGE/LD.wav');
+                </script>
+           </td>
+            <td>
+                <div id="hubert_2_header_waveform_merge"></div>
+                <button id="hubert_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_hubert_2_merge.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_hubert_2_merge = WaveSurfer.create({
+                                container: '#hubert_2_header_waveform_merge',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_hubert_2_merge.load('./audio/MERGE/LEFT.wav');
+                </script>
+           </td>
+            <td>
+                <div id="asr_2_header_waveform_merge"></div>
+                <button id="asr_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_asr_2_merge.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_asr_2_merge = WaveSurfer.create({
+                                container: '#asr_2_header_waveform_merge',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_asr_2_merge.load('./audio/MERGE/RIGHT.wav');
+                </script>
+           </td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+
+</body>
+</html>
