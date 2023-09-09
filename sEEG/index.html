@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Neural Speech Decoding</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="jquery-3.5.js"></script>
+    </head>
+    <body>
+<div class="container">
+    <div id="text1">Decoding Imagined and Overt Speech from sEEG Neural Recordings</div>
+    <div id="intro">
+        
+        
+    </div>
+</div>
+        <div class="content-container">
+            <img src="fig1.png" style="width:90%">
+            <p>
+                Beyond the representation of speech using physical and interpretable speech
+                parameters. Recent speech recognition and synthesis models exploit the power
+                of self-supervised learning. Wav2Vec and HuBERT models show their strengths
+                by learning a quantized representation using masked transformers and con-
+                trastive learning. Recent advances in neural prostheses and understanding the
+                neural representation for speech have applied the HuBERT model and demon-
+                strated successful speech decoding from the human brain. However, most of
+                these successful decoding attempts rely on rare and expensive intracranial EEG
+                (ECoG or Utah Array) recordings. Can we decode intelligible speech from more
+                accessible sEEG recordings? In this study, we use a neural decoding framework
+                to decode intelligible, imagined speech from patients implanted with sEEG ar-
+                rays. Our results show success in decoding intelligible speech from a large pa-
+                tient sEEG dataset with unprecedented accuracy.
+
+            </p>
+            <img src="fig2.png" style="width:60%">
+            <br/>
+        </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="content-container">
+    <script src="wavesurfer.js"></script>
+<div class="content-title">Speech Decoding Examples</div>
+<p><i> </i></p>   
+    <table border = "1" class="inlineTable" >
+        <col width="200">
+        <col width="300">
+        <col width="300">
+        <col width="300">
+        <col width="300">
+        <tr>
+            <td></td>
+            <td>sEEG Overt</td>
+        </tr>
+
+        
+
+        <tr>
+            <th>Decoded</th>
+            <td>
+                <div id="prompts_2_header_waveform"></div>
+                <button id="prompts_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_prompts_2.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_prompts_2 = WaveSurfer.create({
+                                container: '#prompts_2_header_waveform',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                    wavesurfer_prompts_2.load('./audio/PRED/overt.wav');
+                </script>
+           </td>
+
+        </tr>
+
+        <tr>
+            <th>Original/Decoded</th>
+            <td>
+                <div id="prompts_2_header_waveform_merge"></div>
+                <button id="prompts_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_Merge_1.playPause()">
+                    <i class="fa fa-play"></i>
+                    Play
+                    /
+                    <i class="fa fa-pause"></i>
+                    Pause
+                </button>
+                <script>
+                    var wavesurfer_Merge_1 = WaveSurfer.create({
+                                container: '#prompts_2_header_waveform_merge',
+                                waveColor: 'violet',
+                                progressColor: 'purple'
+                            });
+                            wavesurfer_Merge_1.load('./audio/MERGE/overt.wav');
+                </script>
+           </td>
+           
+        </tr>
+
+    </table>
+</div>
+
+
+
+
+</body>
+</html>
