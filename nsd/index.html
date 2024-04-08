@@ -15,9 +15,24 @@
     </div>
 </div>
         <div class="content-container">
-            <div style="text-align:center">
-                [<a   href="https://github.com/flinkerlab/neural_speech_decoding">CODE</a>]
-              </div>
+            <div style="text-align:center; white-space: nowrap;">
+                <a href="https://github.com/flinkerlab/neural_speech_decoding" style="color:blue; text-decoration:none; display:inline-block; vertical-align:middle;">
+                    [CODE]
+                </a>
+                <a href="https://www.nature.com/articles/s42256-024-00824-8" style="color:blue; text-decoration:none; display:inline-block; vertical-align:middle;">
+                    [PAPER]
+                </a>
+
+                <p>
+                   Our Paper is Online in Nature Machine Intelligence!
+                   <a href="https://www.nature.com/articles/s42256-024-00824-8" style="display:inline-block; vertical-align:middle;">
+                    <img src="https://img.shields.io/badge/DOI-10.1038%2Fs42256--024--00824--8-blue" alt="DOI - 10.1038/s42256-024-00824-8" style="width:300px; height:auto;">
+                </a>
+                </p>
+            </div>
+            
+    
+
             <img src="fig.png" style="width:90%">
             <p>
                 Decoding human speech from neural signals is essential for brain-computer interface (BCI) technologies restoring speech in populations with neurological deficits. However, it remains a highly challenging task, compounded by the scarce availability of neural signals with corresponding speech, data complexity, and high dimensionality. Here, we present a novel deep learning-based neural speech decoding framework that includes an ECoG Decoder that translates electrocorticographic (ECoG) signals from the cortex into interpretable speech parameters and a novel differentiable Speech Synthesizer that maps speech parameters to spectrograms. We developed a companion speech-to-speech auto-encoder consisting of a speech encoder and the same speech synthesizer to generate reference speech parameters to facilitate the ECoG decoder training. This framework generates natural-sounding speech and is highly reproducible across a cohort of 48 participants. Our experimental results show that our models can decode speech with high correlation even when limited to only causal operations, which is necessary for adoption by real-time neural prostheses. Lastly, we successfully decode speech in participants with either left or right hemisphere coverage, which could lead to speech prostheses in patients with deficits resulting from left hemisphere damage.
@@ -201,7 +216,7 @@
             <th>Video Demo</th>
             <td>
                 <div class="video-box">
-                    <video controls width="280" >
+                    <video controls width="220" >
                       <source src="video/hybrid_density_merge_s2.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
@@ -209,7 +224,7 @@
            </td>
            <td>
             <div class="video-box">
-                <video controls width="280" >
+                <video controls width="220" >
                   <source src="video/low_density_merge_s2.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -217,7 +232,7 @@
        </td>
        <td>
         <div class="video-box">
-            <video controls width="280" >
+            <video controls width="220" >
               <source src="video/left_hemisphere_merge_s2.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -225,7 +240,7 @@
    </td>
    <td>
     <div class="video-box">
-        <video controls width="280" >
+        <video controls width="220" >
           <source src="video/right_hemisphere_merge_s2.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -233,7 +248,25 @@
 </td>
         </tr>
     </table>
+<p>
+    <a   style="color:blue; text-decoration:none; display:inline-block; vertical-align:middle;">
+        CITE OUR WORK
+    </a>
+    
+        <div style="background-color: #f2f2f2; padding: 20px; border-radius: 8px; font-family: 'Arial', sans-serif; font-size: 14px; color: #333; margin: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <pre style="white-space: pre-wrap; word-wrap: break-word;">
+      @article{chen2023neural,
+        title={A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis},
+        author={Chen, Xupeng and Wang, Ran and Khalilian-Gourtani, Amirhossein and Yu, Leyao and Dugan, Patricia and Friedman, Daniel and Doyle, Werner and Devinsky, Orrin and Wang, Yao and Flinker, Adeen},
+        journal={Nature Machine Intelligence},
+        year={2024},
+        publisher={Nature Publishing Group UK London}
+      }
+        </pre>
+      </div>
+      
 </div>
+
 
 
 
