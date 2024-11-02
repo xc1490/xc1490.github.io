@@ -90,8 +90,8 @@
         <tr>
             <th></th>
             <th>Single Subject</th>
-            <th>Multi-Subject</th>
-            <th>Multi-Subject on Unseen</th>
+            <th>Multi-Subject<sup>1</sup></th>
+            <th>Multi-Subject on Unseen<sup>2</sup></th>
         </tr>
         <tr>
             <th>ECoG</th>
@@ -136,7 +136,7 @@
             </td>
         </tr>
         <tr></tr>
-            <th>bad examples</th>
+            <th>Some Failure Cases</th>
             <td>
                 <audio controls>
                     <source src="audio/ecog_bad1.wav" type="audio/mpeg">
@@ -157,7 +157,9 @@
             </td>
         </tr>
     </table>
-
+<!-- Footnotes -->
+<p><sup>1</sup> Multi-Subject: Training a multi-subject model using N subjects' training set and test on one of the N subjects on its testset</p>
+<p><sup>2</sup> Multi-Subject on Unseen: Training a multi-subject model using N subjects' training set and test on an unseen subject on its testset</p>
 
     <a   style="color:blue; text-decoration:none; display:inline-block; vertical-align:middle;">
         CITE OUR WORK
