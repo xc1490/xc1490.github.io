@@ -180,6 +180,13 @@
         <div class="hero-section">
             <div class="container">
                 <div id="text1">sEMG to Aloud Speech Decoding with Articulatory Features as Guidance</div>
+                <div class="pipeline-overview" style="margin-top: 40px; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <h2 style="color: white; font-size: 1.8em; margin-bottom: 25px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">sEMG to Speech Decoding Framework</h2>
+                    <img src="semg_decoding_pipeline.png" style="width: 100%; max-width: 1000px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin: 0 auto; display: block;" alt="sEMG Decoding Pipeline Overview">
+                    <div style="margin-top: 25px; color: rgba(255, 255, 255, 0.9); font-size: 0.95em; line-height: 1.7; text-align: justify; max-width: 1000px; margin-left: auto; margin-right: auto; background: rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 12px;">
+                        Participants perform aloud, mimed, or imagined speech tasks, each involving three repetitions of 50 sentences selected from the TIMIT corpus. During these tasks, high-density surface electromyography (sEMG) signals are recorded and input into a neural sEMG decoder that maps them into a 14-dimensional latent representation. This latent space is then passed through a HiFi-GAN vocoder to synthesize speech. To supervise the learning of the latent space, a reference articulatory space—comprising 12 articulatory dimensions and two source features (pitch and loudness)—is extracted from the original audio using a pipeline of source, articulatory, and speaker embedding extractors. The decoder is trained using reference loss (MSE or Huber) to align the predicted latent representation with this ground truth articulatory-source space. Re-synthesized speech is also generated from the reference features via HiFi-GAN for evaluation and comparison.
+                    </div>
+                </div>
             </div>
         </div>
 
