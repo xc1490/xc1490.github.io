@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>sEMG to Speech Decoding</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script src="jquery-3.5.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(135deg, #f6f8fc 0%, #ffffff 100%);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .hero-section {
+                text-align: center;
+                padding: 60px 20px;
+                background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+                color: white;
+                margin-bottom: 40px;
+                border-radius: 0 0 30px 30px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+
+            #text1 {
+                font-size: 2.5em;
+                font-weight: 700;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+                animation: fadeInDown 0.8s ease-out;
+            }
+
+            .content-section {
+                background: white;
+                border-radius: 20px;
+                padding: 30px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+
+            .content-section:hover {
+                transform: translateY(-5px);
+            }
+
+            .section-title {
+                font-size: 2em;
+                color: #2c3e50;
+                text-align: center;
+                margin-bottom: 30px;
+                position: relative;
+                padding-bottom: 15px;
+            }
+
+            .section-title:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 4px;
+                background: linear-gradient(90deg, #3498db, #2c3e50);
+                border-radius: 2px;
+            }
+
+            .audio-card {
+                background: white;
+                border-radius: 16px;
+                padding: 30px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+            }
+
+            .audio-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            }
+
+            .audio-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 12px;
+            }
+
+            .audio-item {
+                text-align: center;
+                padding: 20px;
+                background: white;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .audio-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+
+            .sample-label {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                background: rgba(44, 62, 80, 0.9);
+                color: white;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.9em;
+                backdrop-filter: blur(4px);
+            }
+
+            .pipeline-item {
+                margin-bottom: 20px;
+                padding: 20px;
+                background: linear-gradient(to right, #f8f9fa, white);
+                border-left: 4px solid #3b82f6;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .pipeline-item:hover {
+                transform: translateX(5px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+
+            .process-step {
+                padding: 8px 12px;
+                background: #e3f2fd;
+                border-radius: 6px;
+                color: #2c3e50;
+                font-size: 0.9em;
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            audio {
+                width: 100%;
+                margin-top: 10px;
+                border-radius: 30px;
+            }
+
+            audio::-webkit-media-controls-panel {
+                background: #f8f9fa;
+            }
+
+            .dot-indicator {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                margin-right: 8px;
+                display: inline-block;
+            }
+
+            .dot-blue { background: #3b82f6; }
+            .dot-green { background: #10b981; }
+            .dot-orange { background: #f59e0b; }
+        </style>
+    </head>
+    <body>
+        <div class="hero-section">
+            <div class="container">
+                <div id="text1">sEMG to Aloud Speech Decoding with Articulatory Features as Guidance</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content-section">
+                <h2 class="section-title">Pipeline Overview</h2>
+                <div class="pipeline-content">
+                    <img src="fig2.png" style="width: 100%; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    
+                    <div class="pipeline-item">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Preprocessing</strong>
+                        <div style="margin-top: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <span class="process-step">DC Offset Removal</span>
+                            <span style="color: #6b7280;">→</span>
+                            <span class="process-step">Filtering (10-450Hz)</span>
+                            <span style="color: #6b7280;">→</span>
+                            <span class="process-step">Envelope Extraction</span>
+                            <span style="color: #6b7280;">→</span>
+                            <span class="process-step">Normalization</span>
+                            <span style="color: #6b7280;">→</span>
+                            <span class="process-step">Downsampling (1000Hz)</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Feature Extraction</strong>
+                        <p style="color: #4b5563; margin-top: 15px;">Extract dense phoneme annotation, word onset and offset, segment out sentence based on word onset and offset, extract articulatory space based on audio. We save data in strict CV and non-strict CV mode.</p>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Data Processing</strong>
+                        <p style="color: #4b5563; margin-top: 15px;">Pad the sentence in same length and record original length. Augment sEMG with random noise and channel masking. Mixup the sEMG and audio.</p>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Model Architecture</strong>
+                        <p style="color: #4b5563; margin-top: 15px;">Conv+RNN, Conv+Transformer with padding aware training. Map 8 sEMG channels to 14 articulatory space.</p>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Training & Evaluation</strong>
+                        <p style="color: #4b5563; margin-top: 15px;">Huber and MSE loss combination for articulatory features. Save prediction, resynthesis, and ground-truth audio. Evaluate using PCC and MSE metrics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Audio Decoding Demonstrations</h2>
+                
+                <!-- Sample 1 -->
+                <div class="audio-card">
+                    <div style="position: relative; margin-bottom: 30px;">
+                        <img src="semg_decoding_sample1.png" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div class="sample-label">Sample 1</div>
+                    </div>
+                    <div class="audio-grid">
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-blue"></span>
+                                Ground Truth
+                            </h3>
+                            <audio controls>
+                                <source src="gt/semg_decoding_sample1.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-green"></span>
+                                Resynthesized
+                            </h3>
+                            <audio controls>
+                                <source src="a2a/semg_decoding_sample1.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-orange"></span>
+                                Decoded
+                            </h3>
+                            <audio controls>
+                                <source src="e2a/semg_decoding_sample1.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample 2 -->
+                <div class="audio-card">
+                    <div style="position: relative; margin-bottom: 30px;">
+                        <img src="semg_decoding_sample2.png" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div class="sample-label">Sample 2</div>
+                    </div>
+                    <div class="audio-grid">
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-blue"></span>
+                                Ground Truth
+                            </h3>
+                            <audio controls>
+                                <source src="gt/semg_decoding_sample2.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-green"></span>
+                                Resynthesized
+                            </h3>
+                            <audio controls>
+                                <source src="a2a/semg_decoding_sample2.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-orange"></span>
+                                Decoded
+                            </h3>
+                            <audio controls>
+                                <source src="e2a/semg_decoding_sample2.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample 3 -->
+                <div class="audio-card">
+                    <div style="position: relative; margin-bottom: 30px;">
+                        <img src="semg_decoding_sample3.png" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div class="sample-label">Sample 3</div>
+                    </div>
+                    <div class="audio-grid">
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-blue"></span>
+                                Ground Truth
+                            </h3>
+                            <audio controls>
+                                <source src="gt/semg_decoding_sample3.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-green"></span>
+                                Resynthesized
+                            </h3>
+                            <audio controls>
+                                <source src="a2a/semg_decoding_sample3.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-orange"></span>
+                                Decoded
+                            </h3>
+                            <audio controls>
+                                <source src="e2a/semg_decoding_sample3.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample 4 -->
+                <div class="audio-card">
+                    <div style="position: relative; margin-bottom: 30px;">
+                        <img src="semg_decoding_sample4.png" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div class="sample-label">Sample 4</div>
+                    </div>
+                    <div class="audio-grid">
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-blue"></span>
+                                Ground Truth
+                            </h3>
+                            <audio controls>
+                                <source src="gt/semg_decoding_sample4.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-green"></span>
+                                Resynthesized
+                            </h3>
+                            <audio controls>
+                                <source src="a2a/semg_decoding_sample4.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="audio-item">
+                            <h3 style="color: #2c3e50; font-size: 1.1em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <span class="dot-indicator dot-orange"></span>
+                                Decoded
+                            </h3>
+                            <audio controls>
+                                <source src="e2a/semg_decoding_sample4.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
