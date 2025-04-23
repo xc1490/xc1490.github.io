@@ -227,7 +227,24 @@
             </div>
 
             <div class="content-section">
-                <h2 class="section-title">Audio Decoding Demonstrations</h2>
+                <h2 class="section-title">sEMG speech decoding demos</h2>
+                <div class="section-description" style="text-align: center; color: #4b5563; margin: -20px auto 30px; max-width: 800px; line-height: 1.6; background: #f8f9fa; padding: 20px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    Each spectrogram visualization consists of three parts:
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 15px;">
+                        <span style="display: flex; align-items: center;">
+                            <span class="dot-indicator dot-blue"></span>
+                            Left: Ground truth speech spectrogram
+                        </span>
+                        <span style="display: flex; align-items: center;">
+                            <span class="dot-indicator dot-green"></span>
+                            Middle: Spectrogram from speech resynthesis
+                        </span>
+                        <span style="display: flex; align-items: center;">
+                            <span class="dot-indicator dot-orange"></span>
+                            Right: Spectrogram from sEMG decoded speech
+                        </span>
+                    </div>
+                </div>
                 
                 <!-- Sample 1 -->
                 <div class="audio-card">
