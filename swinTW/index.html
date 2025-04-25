@@ -131,7 +131,13 @@
                 <section>
                     <h2 class="section-title">Citation</h2>
                     <div class="citation-box">
-                        <pre>@article{chen2025transformer,
+                        <button class="copy-button" onclick="copyCitation()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            Copy
+                        </button>
+                        <pre id="citation">@article{chen2025transformer,
     title={Transformer-based neural speech decoding from surface and depth electrode signals},
     author={Chen, Junbo and Chen, Xupeng and Wang, Ran and Le, Chenqian and Khalilian-Gourtani, Amirhossein and Jensen, Erika and Dugan, Patricia and Doyle, Werner and Devinsky, Orrin and Friedman, Daniel and others},
     journal={Journal of Neural Engineering},
@@ -145,5 +151,31 @@
                 </section>
             </div>
         </main>
+
+        <script>
+        function copyCitation() {
+            const citation = document.getElementById('citation').textContent;
+            navigator.clipboard.writeText(citation).then(() => {
+                const button = document.querySelector('.copy-button');
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Copied!
+                `;
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Copy
+                    `;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        </script>
     </body>
 </html>
