@@ -7,8 +7,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="jquery-3.5.js"></script>
-        <script src="wavesurfer.js"></script>
     </head>
     <body>
         <div class="container">
@@ -62,185 +60,89 @@
                     <tr>
                         <th>Decoded</th>
                         <td>
-                            <div id="prompts_2_header_waveform"></div>
-                            <button id="prompts_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_prompts_2.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_prompts_2 = WaveSurfer.create({
-                                            container: '#prompts_2_header_waveform',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_prompts_2.load('./audio/PRED/HB.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/PRED/HB.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="logmel_2_header_waveform"></div>
-                            <button id="logmel_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_logmel_2.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_logmel_2 = WaveSurfer.create({
-                                            container: '#logmel_2_header_waveform',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_logmel_2.load('./audio/PRED/LD.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/PRED/LD.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="hubert_2_header_waveform"></div>
-                            <button id="hubert_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_hubert_2.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_hubert_2 = WaveSurfer.create({
-                                            container: '#hubert_2_header_waveform',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_hubert_2.load('./audio/PRED/LEFT.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/PRED/LEFT.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="asr_2_header_waveform"></div>
-                            <button id="asr_2_header" class="play-button-demo btn btn-primary" onclick="wavesurfer_asr_2.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_asr_2 = WaveSurfer.create({
-                                            container: '#asr_2_header_waveform',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_asr_2.load('./audio/PRED/RIGHT.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/PRED/RIGHT.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                     </tr>
 
                     <tr>
                         <th>Original/Decoded</th>
                         <td>
-                            <div id="prompts_2_header_waveform_merge"></div>
-                            <button id="prompts_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_Merge_1.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_Merge_1 = WaveSurfer.create({
-                                            container: '#prompts_2_header_waveform_merge',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                        wavesurfer_Merge_1.load('./audio/MERGE/HB.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/MERGE/HB.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="logmel_2_header_waveform_merge"></div>
-                            <button id="logmel_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_logmel_2_merge.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_logmel_2_merge = WaveSurfer.create({
-                                            container: '#logmel_2_header_waveform_merge',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_logmel_2_merge.load('./audio/MERGE/LD.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/MERGE/LD.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="hubert_2_header_waveform_merge"></div>
-                            <button id="hubert_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_hubert_2_merge.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_hubert_2_merge = WaveSurfer.create({
-                                            container: '#hubert_2_header_waveform_merge',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_hubert_2_merge.load('./audio/MERGE/LEFT.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/MERGE/LEFT.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                         <td>
-                            <div id="asr_2_header_waveform_merge"></div>
-                            <button id="asr_2_header_merge" class="play-button-demo btn btn-primary" onclick="wavesurfer_asr_2_merge.playPause()">
-                                <i class="fa fa-play"></i>
-                                Play
-                                /
-                                <i class="fa fa-pause"></i>
-                                Pause
-                            </button>
-                            <script>
-                                var wavesurfer_asr_2_merge = WaveSurfer.create({
-                                            container: '#asr_2_header_waveform_merge',
-                                            waveColor: 'violet',
-                                            progressColor: 'purple'
-                                        });
-                                wavesurfer_asr_2_merge.load('./audio/MERGE/RIGHT.wav');
-                            </script>
+                            <audio controls class="audio-player">
+                                <source src="./audio/MERGE/RIGHT.wav" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
                        </td>
                     </tr>
                     <tr>
                         <th>Video Demo</th>
                         <td>
                             <div class="video-box">
-                                <video controls width="220" >
-                                  <source src="video/hybrid_density_merge_s2.mp4" type="video/mp4">
-                                  Your browser does not support the video tag.
+                                <video controls width="220">
+                                    <source src="video/hybrid_density_merge_s2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
                                 </video>
                               </div>
                        </td>
                        <td>
                         <div class="video-box">
-                            <video controls width="220" >
-                              <source src="video/low_density_merge_s2.mp4" type="video/mp4">
-                              Your browser does not support the video tag.
+                            <video controls width="220">
+                                <source src="video/low_density_merge_s2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
                             </video>
                           </div>
                    </td>
                    <td>
                     <div class="video-box">
-                        <video controls width="220" >
-                          <source src="video/left_hemisphere_merge_s2.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
+                        <video controls width="220">
+                            <source src="video/left_hemisphere_merge_s2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
                         </video>
                       </div>
                </td>
                <td>
                 <div class="video-box">
-                    <video controls width="220" >
-                      <source src="video/right_hemisphere_merge_s2.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
+                    <video controls width="220">
+                        <source src="video/right_hemisphere_merge_s2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
                     </video>
                   </div>
             </td>
