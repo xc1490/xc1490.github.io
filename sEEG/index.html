@@ -5,11 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Neural Speech Decoding</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <script src="jquery-3.5.js"></script>
     </head>
     <body>
         <div class="container">
@@ -23,35 +21,52 @@
                     <img src="fig1.png" alt="Neural Speech Decoding Diagram" class="hero-image">
                 </div>
                 
-                <div class="research-summary">
-                    <p>
-                        Beyond the representation of speech using physical and interpretable speech
-                        parameters, recent speech recognition and synthesis models exploit the power
-                        of self-supervised learning. Wav2Vec and HuBERT models show their strengths
-                        by learning a quantized representation using masked transformers and contrastive learning.
-                    </p>
-                    <p>
-                        Recent advances in neural prostheses and understanding the neural representation 
-                        for speech have applied the HuBERT model and demonstrated successful speech 
-                        decoding from the human brain. However, most of these successful decoding 
-                        attempts rely on rare and expensive intracranial EEG (ECoG or Utah Array) recordings.
-                    </p>
-                    <p>
-                        Can we decode intelligible speech from more accessible sEEG recordings? In this study, 
-                        we use a neural decoding framework to decode intelligible, imagined speech from 
-                        patients implanted with sEEG arrays. Our results show success in decoding 
-                        intelligible speech from a large patient sEEG dataset with unprecedented accuracy.
-                    </p>
+
+
+                <div class="visualization-section">
+                    <img src="fig1.png" alt="Neural Speech Decoding Diagram" class="result-image">
+                    <div class="figure-caption">
+                        <p class="caption-title">Neural Speech Decoding Framework with HuBERT Synthesizer</p>
+                        <p class="caption-text">
+                            The proposed neural speech decoding framework consists of two main components:
+                        </p>
+                        <div class="caption-section">
+                            <p class="caption-text"><strong>Upper part:</strong> The sEEG-to-speech decoding pipeline. The sEEG decoder generates time-varying logits from sEEG signals, which are converted into units. A pre-trained Tacontron2 model takes the decoded units and generates a mel spectrogram, which is used by Waveglow to decode the speech.</p>
+                        </div>
+                        <div class="caption-section">
+                            <p class="caption-text"><strong>Lower part:</strong> The pre-trained HuBERT speech synthesizer takes speech as input and generates features that are used for clustering to generate quantized units per frame. The pre-trained Tacontron2 model takes the quantized units and generates a mel spectrogram, which is used by Waveglow to resynthesize the speech.</p>
+                        </div>
+                        <p class="caption-text caption-note">
+                            The lower speech re-synthesis part serves as a guide to generate quantized units, helping the sEEG decoder map to the units as closely as possible. The sEEG decoder functions as a classifier that generates time-varying class labels for each frame. During inference, only the upper part is used.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="visualization-section">
                     <img src="fig2.png" alt="Research Results Visualization" class="result-image">
+                </div>
+
+                <div class="visualization-section">
+                    <img src="art.png" alt="Neural Speech Decoding Framework with Articulatory Space" class="result-image">
+                    <div class="figure-caption">
+                        <p class="caption-title">Neural Speech Decoding Framework with Articulatory Space</p>
+                        <p class="caption-text">
+                            <strong>Upper panel:</strong> sEEG‐to‐speech decoding. Intracranial sEEG signals recorded during auditory/visual tasks are mapped by an sEEG decoder into time‐varying latent vectors (12‐D articulatory trajectories + pitch + loudness), which—together with a learned speaker embedding—condition a pretrained HiFi‐GAN vocoder to produce decoded speech.
+                        </p>
+                        <p class="caption-text">
+                            <strong>Lower panel:</strong> Articulatory analysis–synthesis for training. Original speech is processed by separate speaker identity, articulatory feature, and source feature extractors to generate reference articulatory kinematics and source signals. These reference features drive the same HiFi‐GAN to re‐synthesize speech, and the reconstructed waveform provides supervisory feedback (via MSE/Huber loss) to align the sEEG‐decoded latents. During inference only the upper pathway is used.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <div class="content-container">
                 <div class="content-title">Speech Decoding Examples</div>
                 <div class="audio-demos">
+                    <h3 class="section-subtitle">Results from HuBERT Synthesizer Framework</h3>
+                    <div class="demo-image-container">
+                        <img src="demo_hubert.png" alt="HuBERT Synthesis Demo" class="demo-image">
+                    </div>
                     <table class="inlineTable">
                         <colgroup>
                             <col style="width: 20%">
@@ -63,58 +78,58 @@
                         </tr>
                         <tr>
                             <th>Decoded</th>
-                            <td>
-                                <div id="prompts_2_header_waveform" class="waveform-container"></div>
-                                <button id="prompts_2_header" class="play-button-demo">
-                                    <i class="fa fa-play"></i>
-                                    Play /
-                                    <i class="fa fa-pause"></i>
-                                    Pause
-                                </button>
+                            <td class="audio-cell">
+                                <audio controls>
+                                    <source src="./audio/PRED/overt.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
                             </td>
                         </tr>
                         <tr>
                             <th>Original/Decoded</th>
-                            <td>
-                                <div id="prompts_2_header_waveform_merge" class="waveform-container"></div>
-                                <button id="prompts_2_header_merge" class="play-button-demo">
-                                    <i class="fa fa-play"></i>
-                                    Play /
-                                    <i class="fa fa-pause"></i>
-                                    Pause
-                                </button>
+                            <td class="audio-cell">
+                                <audio controls>
+                                    <source src="./audio/MERGE/overt.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h3 class="section-subtitle">Results from Articulatory Space Decoding</h3>
+                    <div class="demo-image-container">
+                        <img src="demo_art.png" alt="Articulatory Space Decoding Demo" class="demo-image">
+                    </div>
+                    <table class="inlineTable">
+                        <colgroup>
+                            <col style="width: 20%">
+                            <col style="width: 80%">
+                        </colgroup>
+                        <tr>
+                            <td></td>
+                            <td><strong>sEEG Overt</strong></td>
+                        </tr>
+                        <tr>
+                            <th>Decoded</th>
+                            <td class="audio-cell">
+                                <audio controls>
+                                    <source src="decoded.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Original/Decoded</th>
+                            <td class="audio-cell">
+                                <audio controls>
+                                    <source src="merged.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
-
-        <script src="wavesurfer.js"></script>
-        <script>
-            var wavesurfer_prompts_2 = WaveSurfer.create({
-                container: '#prompts_2_header_waveform',
-                waveColor: '#6c63ff',
-                progressColor: '#4a90e2',
-                height: 80,
-                cursorWidth: 2,
-                cursorColor: '#4a90e2',
-                barWidth: 2,
-                barGap: 1
-            });
-            wavesurfer_prompts_2.load('./audio/PRED/overt.wav');
-
-            var wavesurfer_Merge_1 = WaveSurfer.create({
-                container: '#prompts_2_header_waveform_merge',
-                waveColor: '#6c63ff',
-                progressColor: '#4a90e2',
-                height: 80,
-                cursorWidth: 2,
-                cursorColor: '#4a90e2',
-                barWidth: 2,
-                barGap: 1
-            });
-            wavesurfer_Merge_1.load('./audio/MERGE/overt.wav');
-        </script>
     </body>
 </html>

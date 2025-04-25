@@ -27,6 +27,14 @@ body {
     margin-bottom: 2rem;
     color: var(--primary-color);
     line-height: 1.2;
+    padding: 0 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
 }
 
 .content-container {
@@ -38,30 +46,79 @@ body {
     max-width: 1000px;
 }
 
+.hero-section,
+.hero-image {
+    display: none;
+}
+
+.pdf-fallback {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.pdf-fallback a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.pdf-fallback a:hover {
+    text-decoration: underline;
+}
+
+.research-summary {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.research-summary p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.visualization-section {
+    margin: 4rem auto;
+    text-align: center;
+    max-width: 1200px;
+}
+
+.visualization-section:last-child {
+    margin-bottom: 2rem;
+}
+
+.result-image {
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    object-fit: contain;
+}
+
+.result-image:hover {
+    transform: scale(1.02);
+}
+
 .content-title {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-p {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-    text-align: justify;
-}
-
-img {
-    display: block;
-    margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-img:hover {
-    transform: scale(1.02);
+.audio-demos {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .inlineTable {
@@ -71,6 +128,7 @@ img:hover {
     background: white;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .inlineTable th, .inlineTable td {
@@ -81,410 +139,13 @@ img:hover {
 .inlineTable th {
     background-color: #f5f7fa;
     font-weight: 600;
+    text-align: left;
+    color: var(--text-color);
 }
 
-.play-button-demo {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-    margin: 0.5rem 0;
-}
-
-.play-button-demo:hover {
-    background-color: var(--secondary-color);
-}
-
-#wavesurfer_prompts_2_header_waveform,
-#wavesurfer_prompts_2_header_waveform_merge {
-    margin: 1rem 0;
-    background: #f5f7fa;
-    border-radius: 4px;
-    padding: 1rem;
-}
-
-html {
-    background-color: lightgrey;
-    font-family: sans-serif;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    margin: 0;
-    padding: 0;
-}
-body {
-    background-color : lightgrey;
-    margin: auto;
-    width: 90%;
-    min-width: 1200px;
-    max-width: 2000px;
-    height: 100%;
-    padding: 0;
-}
-
-.container{
-    position: relative;
-    background:  rgb(22, 38, 67); /* For browsers that do not support gradients */
-    /* background: -webkit-linear-gradient(color1, color2); /* For Safari 5.1 to 6.0 */
-    /* background: -o-linear-gradient(color1, color2); /* For Opera 11.1 to 12.0 */
-    /* background: -moz-linear-gradient(color1, color2); /* For Firefox 3.6 to 15 */
-    /* background: linear-gradient(color1, color2);  /* Standard syntax */
-	background-size: cover;
-    height: auto;
-    padding: 2%;
-}
-
-.footer-container{
-    position: relative;
-    background-image: url("../img/pattern2.png") ;
-    background-size: cover;
-    height: auto;
-    padding: 30px 30px;
-}
-
-a {
-    color: white; 
-}
-
-#img1{
-    z-index: 100;
-    position: absolute;
-    left: 10%;
-    top: 15%;
-    border-radius: 50%;
-    height: 70%;
-    width: auto;
-    box-shadow: 10px 5px 5px gray;
-}
-
-#img3{
-    width: 90%;
-    align-content: center;
-	height: auto;
-    padding: 2%;
-}
-
-#cat{
-    display: inline-block;
-    float: left;
-    width: 42%;
-    height: auto;
-    padding-left: 5%; 
-}
-
-#cat_2{
-    display: inline-block;
-    float: right;
-    width: 42%;
-    height: auto;
-    padding-right: 5%;
-}
-
-#intro{
-    z-index:100;
-    color: white;
-    font-size: 22px;
-    text-align: center;
-}
-
-#text2{
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-}
-
-#footnote{
-	color: white;
-    font-size: 20px;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-#area1{
-	width:100%;
-	height:100px;
-}
-
-.clear{
-    clear:both;
-}
-
-.img-circle {
-    border-radius: 50%;
-}
-
-nav{
-    margin-bottom: 76px;
-}
-
-.nav-button {
-    background-color: #999999;
-    width: 50%;
-    padding: 10px 0;
-    text-decoration: none;
-    text-align: center;
-    font-size: 20px;
-    color: white;
-    float: left;
-    cursor: pointer;
-}
-
-.nav-button:hover {
-    background-color: #666666;
-}
-
-.icon {
-    background-color: white;
-    height: 40px;
-    width: 40px;
-    padding: 0 0;
-    margin-right: 5px;
-    display: inline-block;
-    position: center;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.icon-container{
-	text-align:center;
-    margin: 10px 10px;
-}
-
-/* The following is for projects.php*/
-.project-container{
-	display: block;
-	height: auto;
-	width: 100%;
-	margin-bottom: 30px;
-}
-.project-image-container{
-	display: inline-block;
-	vertical-align: top;
-	width: 30%;
-	height: auto;
-	margin-right: 3%;
-}
-.project-logo-container{
-	display: inline-block;
-	vertical-align: top;
-	width: 4%;
-	height: auto;
-    margin-right: 2%; 
-}
-.project-text-container{
-	display: inline-block;
-	vertical-align: top;
-	width: 60%;
-	height: auto;
-	margin-left: 3%;
-}
-.project-full-text-container{
-	display: inline-block;
-	vertical-align: top;
-	width: 90%;
-	height: auto;
-    margin-left: 2%; 
-}
-.project-video-container{
-    width: 70%;
-    height: auto;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: block;
-}
-.project-year-container{
-    background-color: rgb(22, 38, 67); /*#FFC064*/
-    padding: 5px;
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-}
-
-table {
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td{
-    width: 65px;
-    padding: 1%;
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
-    border-collapse: collapse;
-}
-
-.play-button{
-    width: 50px; 
-    height: auto;
-    display: block; 
-}
-
-h1 {
-    text-align: center;
-    color: rgb(22, 38, 67);
-}
-
-.icon-container > a {
-    color: transparent;
-}
-
-hr {
-    color: rgb(22, 38, 67);
-    size: 10px;
-}
-
-.option-div{
-    font-size: 24px;
-    color: rgb(22, 38, 67);
-    font-weight: bold;
-}
-
-.option-div option{
-    font-size: 20px;
-}
-
-.fa-play:before {
-    content: "\f04b"
-}
-
-.fa-pause:before {
-    content: "\f04c"
-}
-
-.fa-stop:before {
-    content: "\f04d"
-}
-
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px / 1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
-}
-
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
-}
-
-@media screen and (prefers-reduced-motion:reduce) {
-    .btn {
-        transition: none
-    }
-}
-
-.btn:focus, .btn:hover {
-    text-decoration: none
-}
-
-.btn.focus, .btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
-}
-
-.btn.disabled, .btn:disabled {
-    opacity: .65
-}
-
-.btn:not(:disabled):not(.disabled) {
-    cursor: pointer
-}
-
-a.btn.disabled, fieldset:disabled a.btn {
-    pointer-events: none
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: rgb(22, 38, 67);
-    border-color: rgb(22, 38, 67)
-}
-
-.btn-primary:hover {
-    color: #fff;
-    background-color: rgb(22, 38, 67);
-    border-color: rgb(22, 38, 67)
-}
-
-.btn-primary.focus, .btn-primary:focus {
-    box-shadow: 0 0 0 .2rem rgba(22, 38, 67, .5)
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-    color: #fff;
-    background-color: rgb(22, 38, 67);
-    border-color: rgb(22, 38, 67)
-}
-
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active,
-.show > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: rgb(22, 38, 67);
-    border-color: rgb(22, 38, 67)
-}
-
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(22, 38, 67, .5)
-}
-
-.subtitle {
-    text-align: center;
-    color: var(--secondary-color);
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-}
-
-.hero-section {
-    margin: -2rem -2rem 2rem -2rem;
-    background: linear-gradient(to bottom, #f8f9fa, white);
-    padding: 3rem 2rem;
-}
-
-.hero-image {
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-.research-summary {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.visualization-section {
-    margin: 3rem 0;
-    text-align: center;
-}
-
-.result-image {
-    max-width: 60%;
+.inlineTable td strong {
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .waveform-container {
@@ -492,11 +153,45 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 0.5rem;
+    min-height: 80px;
 }
 
-.audio-demos {
-    max-width: 900px;
-    margin: 0 auto;
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.play-button-demo {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.play-button-demo:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.play-button-demo:active {
+    transform: translateY(0);
+}
+
+.play-button-demo i {
+    font-size: 1rem;
+}
+
+/* Remove old audio player styles */
+.audio-player {
+    display: none;
 }
 
 header {
@@ -515,12 +210,203 @@ header {
         font-size: 2rem;
     }
     
-    .hero-image, .result-image {
-        max-width: 100%;
+    .result-image {
+        width: 100%;
     }
     
     .content-container {
         padding: 1rem;
     }
+    
+    .play-button-demo {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.audio-cell {
+    padding: 1.5rem !important;
+    text-align: center;
+}
+
+.audio-cell audio {
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+/* Remove old wavesurfer styles */
+.waveform-container,
+.controls,
+.play-button-demo {
+    display: none;
+}
+
+.figure-caption {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.caption-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.caption-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.caption-section {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--secondary-color);
+    background: rgba(74, 144, 226, 0.05);
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.caption-section .caption-text {
+    margin-bottom: 0;
+}
+
+.caption-note {
+    font-size: 0.95rem;
+    color: #666;
+    background: rgba(108, 99, 255, 0.05);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+}
+
+.caption-text strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* 响应式设计优化 */
+@media screen and (min-width: 1400px) {
+    .result-image {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .result-image {
+        width: 95%;
+    }
+    
+    .figure-caption {
+        width: 90%;
+        margin: 1.5rem auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .visualization-section {
+        margin: 3rem auto;
+    }
+    
+    .result-image {
+        width: 100%;
+    }
+    
+    .figure-caption {
+        padding: 1.2rem;
+        margin: 1.5rem auto;
+    }
+    
+    .caption-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .caption-section {
+        margin: 1.2rem 0;
+        padding: 0.8rem 1rem;
+    }
+    
+    .caption-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .caption-note {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(74, 144, 226, 0.2);
+    text-align: left;
+}
+
+.section-subtitle:first-of-type {
+    margin-top: 1.5rem;
+}
+
+.audio-demos {
+    padding: 0.5rem;
+}
+
+.audio-demos .inlineTable {
+    margin: 2rem 0 3rem;
+}
+
+.audio-demos .inlineTable:last-child {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .section-subtitle {
+        margin: 2.5rem 0 1rem;
+    }
+
+    .audio-demos {
+        padding: 0.25rem;
+    }
+
+    .audio-demos .inlineTable {
+        margin: 1.5rem 0 2.5rem;
+    }
+}
+
+.demo-image-container {
+    margin: 2rem 0;
+    text-align: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.demo-image {
+    max-width: 90%;
+    height: auto;
+    border-radius: 6px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.demo-image:hover {
+    transform: scale(1.02);
 }
 
