@@ -31,6 +31,14 @@
                     </a>
                 </div>
 
+                <img src="fig.png" style="width:90%">
+                <div class="abstract-section">
+                    <p>
+                        Decoding human speech from neural signals is essential for brain-computer interface (BCI) technologies restoring speech in populations with neurological deficits. However, it remains a highly challenging task, compounded by the scarce availability of neural signals with corresponding speech, data complexity, and high dimensionality. Here, we present a novel deep learning-based neural speech decoding framework that includes an ECoG Decoder that translates electrocorticographic (ECoG) signals from the cortex into interpretable speech parameters and a novel differentiable Speech Synthesizer that maps speech parameters to spectrograms. We developed a companion speech-to-speech auto-encoder consisting of a speech encoder and the same speech synthesizer to generate reference speech parameters to facilitate the ECoG decoder training. This framework generates natural-sounding speech and is highly reproducible across a cohort of 48 participants. Our experimental results show that our models can decode speech with high correlation even when limited to only causal operations, which is necessary for adoption by real-time neural prostheses. Lastly, we successfully decode speech in participants with either left or right hemisphere coverage, which could lead to speech prostheses in patients with deficits resulting from left hemisphere damage.
+                    </p>
+                </div>
+                <br/>
+
                 <img src="fig.png" alt="Neural Speech Decoding Framework" style="width: 100%; max-width: 1000px; margin: 2rem auto; display: block;">
                 
                 <p style="text-align: justify;">
@@ -151,8 +159,11 @@
             </div>
 
             <div class="content-container">
-                <div class="content-title" style="margin-top: 3rem;">Cite Our Work</div>
+                <div class="citation-title">Cite Our Work</div>
                 <div class="citation-box">
+                    <button class="copy-button" onclick="copyToClipboard()">
+                        <i class="fa fa-copy"></i> Copy
+                    </button>
                     <pre>@article{chen2023neural,
     title={A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis},
     author={Chen, Xupeng and Wang, Ran and Khalilian-Gourtani, Amirhossein and Yu, Leyao and 
@@ -165,5 +176,26 @@
                 </div>
             </div>
         </div>
+
+        <script>
+        function copyToClipboard() {
+            const citation = `@article{chen2023neural,
+    title={A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis},
+    author={Chen, Xupeng and Wang, Ran and Khalilian-Gourtani, Amirhossein and Yu, Leyao and 
+           Dugan, Patricia and Friedman, Daniel and Doyle, Werner and Devinsky, Orrin and 
+           Wang, Yao and Flinker, Adeen},
+    journal={Nature Machine Intelligence},
+    year={2024},
+    publisher={Nature Publishing Group UK London}
+}`;
+            navigator.clipboard.writeText(citation).then(() => {
+                const button = document.querySelector('.copy-button');
+                button.innerHTML = '<i class="fa fa-check"></i> Copied!';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fa fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+        </script>
     </body>
 </html>
