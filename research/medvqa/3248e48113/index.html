@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><script>try{if(localStorage.getItem("xr-k-medvqa"))document.documentElement.style.visibility="hidden"}catch(e){}</script><title>Research</title>
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#fff;color:#222;font:16px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif}
+form{width:min(380px,88vw)}h1{font:700 22px/1.3 Palatino,Georgia,serif;margin:0 0 6px}p{color:#626262;margin:0 0 18px;font-size:14px}
+input{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #bbb;font-size:16px}button{margin-top:10px;width:100%;padding:11px;border:0;background:#069;color:#fff;font-size:15px;cursor:pointer}
+.err{color:#b00020;font-size:13px;min-height:1.2em;margin-top:8px}</style></head><body>
+<form id="g"><h1>Research</h1><p>Private research materials. Please enter the access code.<br>内部研究资料，请输入访问码。</p>
+<input id="pw" type="password" autocomplete="current-password" autofocus aria-label="Access code"><button>Open · 进入</button><div class="err" id="e"></div></form>
+<script>
+const P={salt:"EJvs2ez54wm/lDlxRdD2Yg==",iv:"BZMZB+XH9LAs9MdN",ct:"9gnZABWdMFE4XXxWDmTZT34QVoEP+4DZoF2SorDcdUoktVSs7sw3r2auWlE4PyC45J7e3FDaq0ynQic/6nZKDB2i5R7sRJgSNVeBBeOPCYfvm+gddpHW4cSpH3ileCFdqtTDbJoGpq7B99KyC1Se/3+6Cd/qYJd5vhIEsK/7mIkyT0iWIyRqhmxv/NzyE75ZK5bnUxcqbl64OfYHYczjF+bKBdwnaEIORMTsPRhD/xP+tTui4DPvFwIJr5lp9hC5y5cxZH/RCeeVXJ+mb91x9P4qI9y08423d86iyQwj/MjdiaoZ2Uiq77joeO+XdF6JBa4bQcUg+oLCMP1Qdo7u0EZKG8U0UeHcu+3fU0+8DXHinblrhPIpn9H9KO+ZGigcZAuysUVGb7XTvQ35PG+mrUfiaQ9h8rsgSLJnr25czHRN5Iuy/7DlzYWes5ZWPDHxzsPAQhJ3wafHrHatcQogXImX/AVQ/VYrgyqGHALUGuDCiYoe/i1hDwI7Gqm60nasOfhJy90IBo3F0cGgFvoq8MHMkkfzl9C5uvssenrIAqzoOP9E4gOMYKWVoedImfKx9EjMgfdIu3lRtK957r+iINig/0w6d0xXdd8je/LEgzJpXzVcncE4GuOH649hWG4u61YH/6lNL91gNE4F5GWXsFnrSOnENjKPJfiaKp4gPCC+Sz0bVWThv1K3hOIAfmA7GPD4wiZFqn9uYO7VS99IMM/JJmDzHwiE+BbQ9SNNaBE0vNj2Mpz9AO3e7BLC0j3CiJY+OJM6rXyMn0q+JAdknkaveJXcuHZU99HxuIlZcjNB9jrKYWO4euKMIE7glCHtIyWgfC5XwKC4xEUDSwbXeFOBYMlzVg8mWnZK87tsiTCTKorOKwX7WpK9c1fG+JZEd/s8WC+Tn8jflamjJxdHIY82U5i0bbKVfBMAEbwFg11GxQljHJIWl7Xit0gOLqk5Z3RRzRZUStnTr54iCZ/AvWA8HPu2SlAgCOYGYIElL+HLYx0zSWkPyc8ZEKxrgnI7dvYattqUkvW6GnokCTgwOBOLa7miyiTyRdWLQLuH336Fo8l5mcwKuDnIdUSGWFHVrS8X6D7WMO9YbF/9wbhn/vyv7Ex3EDDYutU4y5dr60Oq1V3F87pr4yyWCmB4vyXz2buMzjGsftQzSsWzk2TE6tE5UurNyfSz7tCR84KWNsAlt/yTSJBQ//PNYfYDF5zF0KJVQ43pwYeDVMBujaIYug1GKBoINIWmlL5Jsl5VSJqJRc+edeMhZ0Itmu06YQoPjDwvz6HE67Z2sm9apwRm45zJtL9c2U1oZDOGYSmTHUWQHKBKYPj1tfEwcOWfuPtgAnKxNDSUbh1VtpRQp5g1YUe5Rx6bFVp4q6L8teR8NbKvva7G2jJywjReP86riZx820EWlVw5E/IBzM54jgMj/IcBkw3cjUaD0G4aQrf4dX8/UUI=",it:310000};
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function keyFrom(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+ return crypto.subtle.deriveKey({name:"PBKDF2",salt:b(P.salt),iterations:P.it,hash:"SHA-256"},k,{name:"AES-GCM",length:256},true,["decrypt"]);}
+async function plain(key){const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b(P.iv)},key,b(P.ct));return new TextDecoder().decode(pt);}
+async function show(h){if(document.readyState!=="complete")await new Promise(r=>addEventListener("load",r,{once:true}));document.open();document.write(h);document.close();}
+(async()=>{const raw=localStorage.getItem("xr-k-medvqa");if(!raw)return;try{const k=await crypto.subtle.importKey("raw",b(raw),"AES-GCM",true,["decrypt"]);await show(await plain(k));}catch(e){localStorage.removeItem("xr-k-medvqa");document.documentElement.style.visibility="visible"}})();
+document.getElementById("g").addEventListener("submit",async ev=>{ev.preventDefault();const e=document.getElementById("e");e.textContent="";
+ let h;try{const k=await keyFrom(document.getElementById("pw").value);h=await plain(k);
+  const r=new Uint8Array(await crypto.subtle.exportKey("raw",k));localStorage.setItem("xr-k-medvqa",btoa(String.fromCharCode(...r)));}
+ catch(x){e.textContent="Incorrect code. 访问码不正确，请重试。";return;}
+ show(h);});
+</script></body></html>
